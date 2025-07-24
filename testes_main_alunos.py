@@ -82,19 +82,45 @@ class TestCalculadora(unittest.TestCase):
         
         # Teste números negativos - fazer 3 testes para todas as versões
         self.assertEqual(calculadora(-2, 3, '*'), -6)
+        self.assertEqual(calculadora(-2, 3, '-'), -5)
+        self.assertEqual(calculadora(-2, 3, '+'), 1)
+        self.assertEqual(calculadora_v2(-2, 3, '*'), -6)
+        self.assertEqual(calculadora_v2(-2, 3, '-'), -5)
+        self.assertEqual(calculadora_v2(-2, 3, '+'), 1)
+        self.assertEqual(calculadora_v3(-2, 3, '*'), -6)
+        self.assertEqual(calculadora_v3(-2, 3, '-'), -5)
+        self.assertEqual(calculadora_v3(-2, 3, '+'), 1)
+        self.assertEqual(calculadora_v4(-2, 3, '*'), -6)
+        self.assertEqual(calculadora_v4(-2, 3, '-'), -5)
+        self.assertEqual(calculadora_v4(-2, 3, '+'), 1)
 
         # Teste números negativos com divisão e módulo, testar para todas as versões
         self.assertTrue(calculadora(-6, 3, '/'), -2.0)
         self.assertTrue(calculadora(-7, 3, '%'), 2.0)
+        self.assertTrue(calculadora_v2(-6, 3, '/'), -2.0)
+        self.assertTrue(calculadora_v2(-7, 3, '%'), 2.0)
+        self.assertTrue(calculadora_v3(-6, 3, '/'), -2.0)
+        self.assertTrue(calculadora_v3(-7, 3, '%'), 2.0)
+        self.assertTrue(calculadora_v4(-6, 3, '/'), -2.0)
+        self.assertTrue(calculadora_v4(-7, 3, '%'), 2.0)
 
         # Teste números negativos com exponenciação, testar para todas as versões
         self.assertEqual(calculadora(-2, 3, '^'), -8)
+        self.assertEqual(calculadora_v2(-2, 3, '^'), -8)
+        self.assertEqual(calculadora_v3(-2, 3, '^'), -8)
+        self.assertEqual(calculadora_v4(-2, 3, '^'), -8)
 
         # Teste números negativos com exponenciação de zero, testar para todas as versões
         self.assertEqual(calculadora(0, 3, '^'), 0)
-
+        self.assertEqual(calculadora(0, -3, '^'), 0)
+        self.assertEqual(calculadora_v2(0, 3, '^'), 0)
+        self.assertEqual(calculadora_v2(0, -3, '^'), 0)
+        self.assertEqual(calculadora_v3(0, 3, '^'), 0)
+        self.assertEqual(calculadora_v3(0, -3, '^'), 0)
+        self.assertEqual(calculadora_v4(0, 3, '^'), 0)
+        self.assertEqual(calculadora_v4(0, -3, '^'), 0)
 
 if __name__ == '__main__':
     unittest.main()
 
-# para correr os testes: python -m unittest -v testes_main_alunos.py
+# para correr os testes: python3 -m unittest -v testes_main_alunos.py
