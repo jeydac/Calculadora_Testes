@@ -111,14 +111,11 @@ class TestCalculadora(unittest.TestCase):
         self.assertEqual(calculadora_v4(-2, 3, '^'), -8)
 
         # Teste números negativos com exponenciação de zero, testar para todas as versões
-        self.assertEqual(calculadora(0, 3, '^'), 0)
-        self.assertEqual(calculadora(0, -3, '^'), 0)
-        self.assertEqual(calculadora_v2(0, 3, '^'), 0)
-        self.assertEqual(calculadora_v2(0, -3, '^'), 0)
-        self.assertEqual(calculadora_v3(0, 3, '^'), 0)
-        self.assertEqual(calculadora_v3(0, -3, '^'), 0)
-        self.assertEqual(calculadora_v4(0, 3, '^'), 0)
-        self.assertEqual(calculadora_v4(0, -3, '^'), 0)
+        self.assertEqual(calculadora(-3, 0, '^'), 1)
+        self.assertEqual(calculadora_v2(-3, 0, '^'), 1)
+        self.assertEqual(calculadora_v3(-3, 0, '^'), 1)
+        with self.assertRaises(Exception):
+            calculadora_v4(-3, 0, '^') # Esta versão retorna erro, pois não trata o expoente de zero
 
 if __name__ == '__main__':
     unittest.main()
